@@ -1,0 +1,75 @@
+extends layouts/register-layout.pug
+block content
+    main
+        #landing
+            #landing-image
+                img(src="/images/landingimage.png", alt="Twitter Bird")
+                #landing-text
+                    #landing-text-inner
+                        i.fa.fa-twitter.fa-3x
+                        h1 Join Twitter today
+                        .registerContainer    
+                            form#registerForm(method="post", onsubmit="event.preventDefault(); validateForm();") 
+
+                                p.errorMessage #{errorMessage}
+
+
+                                input(type="text", name="firstName" placeholder="first name" value=firstName required="")
+                                input(type="text", name="lastName" value=lastName placeholder="last name")
+                                input(type="text", name="username" value=username placeholder="username" required="")
+                                input(type="email", name="email" value=email placeholder="email id" required="")
+                                input#userPassword(type="password", name="password" placeholder="password" required="")
+                                input#userPasswordConf(type="password", name="passwordConf" placeholder="confirm password" required="")
+                                input(type="submit", value="Register")
+                                h2 Happening now
+                            a(href="/login") Already have an account? Login here.
+                            
+    footer
+        .footer
+            ul
+                li
+                    a(href='#') About
+                li
+                    a(href='#') Help Center
+                li
+                    a(href='#') Terms of Service
+                li
+                    a(href='#') Privacy Policy
+                li
+                    a(href='#') Cookie Policy
+                li
+                    a(href='#') Ads info
+                li
+                    a(href='#') Blog
+                li
+                    a(href='#') Status
+                li
+                    a(href='#') Careers
+                li
+                    a(href='#') Brand Resources
+                li
+                    a(href='#') Advertising
+                li
+                    a(href='#') Marketing
+                li
+                    a(href='#') Twitter for Business
+                li
+                    a(href='#') Developers
+                li
+                    a(href='#') Directory
+                li
+                    a(href='#') Settings
+                p © 2021 Twitter, Inc.
+
+    script.
+        var passwordField = document.getElementById("userPassword")
+        var passwordConfirmField =  document.getElementById("userPasswordConf")
+        var form = document.getElementById("registerForm")
+        function validateForm(){
+            if(passwordField.value != passwordConfirmField.value){
+                alert("Password do not match.")
+            }
+            else{
+                form.submit();
+            }
+        }

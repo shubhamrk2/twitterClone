@@ -1,0 +1,54 @@
+extends layouts/login-layout.pug
+block content
+    main
+        #landing
+            #landing-image
+                img(src="/images/landingimage.png", alt="Twitter Bird")
+                #landing-text
+                    #landing-text-inner
+                        i.fa.fa-twitter.fa-3x
+                        h1 Happening now
+                        .loginContainer    
+                            form(method="post") 
+                                input(type="text", name="userlogName" placeholder="username or email" required="")
+                                input(type="password", name="userlogPassword" placeholder="password" required="")
+                                input(type="submit", value="Login")
+                                h2 Join Twitter today.
+                            a(href="/register") Need an account? Register here. 
+                            
+    footer
+        .footer
+            ul
+                li
+                    a(href='#') About
+                li
+                    a(href='#') Help Center
+                li
+                    a(href='#') Terms of Service
+                li
+                    a(href='#') Privacy Policy
+                li
+                    a(href='#') Cookie Policy
+                li
+                    a(href='#') Ads info
+                li
+                    a(href='#') Blog
+                li
+                    a(href='#') Status
+                li
+                    a(href='#') Careers
+                li
+                    a(href='#') Brand Resources
+                li
+                    a(href='#') Advertising
+                li
+                    a(href='#') Marketing
+                li
+                    a(href='#') Twitter for Business
+                li
+                    a(href='#') Developers
+                li
+                    a(href='#') Directory
+                li
+                    a(href='#') Settings
+                p © 2021 Twitter, Inc.
