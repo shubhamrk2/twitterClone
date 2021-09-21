@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser")
-const User = require('../schemas/user-schema')
+const bcrypt = require("bcrypt");
+
+const User = require('../schemas/user-schema');
+
 
 app.set("view engine","pug");
 app.set("views", "views"); 
@@ -36,9 +39,12 @@ router.post("/", async (req,res,next) => {
             //no user found
 
             var data = req.body;
+
+            data.password = await bcrypt.hash(password, 10);
             User.create(data)
             .then((user) => {
-                console.log(user);
+                req.session.user = user;
+                return res.redirect("/");
             })
 
         } 

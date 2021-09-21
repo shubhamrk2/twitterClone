@@ -10,7 +10,8 @@ block content
                         h1 Happening now
                         .loginContainer    
                             form(method="post") 
-                                input(type="text", name="userlogName" placeholder="username or email" required="")
+                                p.errorMessage #{errorMessage}
+                                input(type="text", name="userlogName" placeholder="username or email" value=userlogName required="")
                                 input(type="password", name="userlogPassword" placeholder="password" required="")
                                 input(type="submit", value="Login")
                                 h2 Join Twitter today.
